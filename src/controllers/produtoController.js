@@ -130,6 +130,17 @@ class ProdutoController {
             });
         }
     };
+    static async listarProdutosPorModelo (req, res) {
+        const modelo = req.query.modelo;
+        try{
+            const produtosPorModelo = await Produto.find({ modelo: modelo});
+            res.status(200).json(produtosPorModelo);
+        } catch(erro){
+            res.status(500).json({
+                message: `${erro.message} - falha ao buscar produto`
+            });
+        }
+    };
 };
 
 export default ProdutoController;
