@@ -1,10 +1,9 @@
 import mongoose from "mongoose";
-import { marcaSchema } from "./Marca.js";
 
 const produtoSchema = new mongoose.Schema({
     id: {type: mongoose.Schema.Types.ObjectId},
     nome: { type: String, required: true },
-    marca: { type: mongoose.Schema.Types.ObjectId, ref: "marcas" },
+    marca: { type: mongoose.Schema.Types.ObjectId, ref: "marcas", required: true },
     modelo: { type: String, required: true },
     capacidade: { type: String, required: true },
     precisao: { type: String, required: true },   
